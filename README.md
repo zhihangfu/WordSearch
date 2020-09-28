@@ -36,7 +36,7 @@ S 1 G O A R 5
 K F 6 E L H A 
 Y 4 2 0 V F X 
 
-Word Bank
+Word Positions
 ------------------------------
 ART : (4, 4) -> (2, 6)
 LOGIC : (5, 4) -> (1, 0)
@@ -52,21 +52,15 @@ ACT : (1, 3) -> (1, 1)
 
 ## What can a Word search object do?
 ### Methods
- > ``` WordSearch.letter(row, column) ```                                                                                       
- Discription: it returns a letter (string) in the defined parameters
- 
- > ```WordSearch.findWords(words)```                                                                                            
- Discription: it searches the words in Grid. (Note: words is a list and is not seperated by commas.) It returns a dictionary where the key is the word and value is a list of tuples(Note:that the tuples are in that order: (y,x)) of the positions the letters
- 
- > ```WordSearch.showResults```
- Description: Prints the Grid and the Word Bank
- 
- > ```WordSearch.gridToCSV(name = ""grid.csv)```
- Description: Save the grid to a csv format
- 
-  > ```WordSearch.shape()```                                                     
- Description: Returns the width and height (as a tuple) of the grid.
- 
+```WordSearch.letter(row, column)``` returns a letter (string) in the defined parameters.
+
+```WordSearch.shape()``` returns the width and height (as a tuple) of the grid.
+
+```WordSearch.findWords(words)``` searches the words in Grid. (Note: words is a list and is not seperated by commas.) It returns a dictionary where the key is the word and value is a list of tuples(Note:that the tuples are in that order: (y,x)) of the positions the letters.
+
+```WordSearch.showResults``` prints the grid and the word positions.
+
+```WordSearch.gridToCSV(name = ""grid.csv)``` save the grid to a csv format.
+
 ### Propeties
- > ```WordSearch.Grid```                                                     
- Description: It is the WordSearch Grid (as a list of lists) where all letters are stored.
+```WordSearch.Grid``` is the WordSearch Grid (as a list of lists) where all letters are stored.
