@@ -1,4 +1,4 @@
-from utils import WordSearch
+from WordSearch import WordSearch
 
 
 # read vocabulary from "voc.txt"
