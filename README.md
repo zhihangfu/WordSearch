@@ -19,7 +19,7 @@ for i in range(len(words)):
 
 
 # initiate WordSearch 1
-w1 = WordSearch(words, 7, 7)
+w1 = WordSearch(words, width = 7, height = 7)
 w1.showResult()
 w1.gridToCSV("grid1.csv")
 ```
