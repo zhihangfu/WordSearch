@@ -1,5 +1,5 @@
 # WordSearch
-## A [Word Search](https://en.wikipedia.org/wiki/Word_search) Puzzle Generator for python.
+## A [Word Search](https://en.wikipedia.org/wiki/Word_search) Puzzle Generator using python.
 derived from mast3rsoft's repository [mast3rsoft/WordSearch](https://github.com/mast3rsoft/WordSearch)
 
 ## How to use
