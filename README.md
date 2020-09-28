@@ -67,7 +67,6 @@ ADAM : (8, 12) -> (5, 12)
 ```
 
 ## What can a Word search object do?
-------------------------------------------------------------------------------------------------------------------------------
 ### Methods
  > ``` WordSearch.letter(row, column) ```                                                                                       
  Discription: it returns a letter (string) in the defined parameters
