@@ -4,7 +4,7 @@ derived from mast3rsoft's repository [mast3rsoft/WordSearch](https://github.com/
 
 ## How to use
 
-### 1. import the *the word search Generator*
+### 1. import the the word search board generator
 
 ```python
 from utils import WordSearch
