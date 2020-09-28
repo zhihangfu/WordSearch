@@ -7,7 +7,7 @@ derived from mast3rsoft's repository [mast3rsoft/WordSearch](https://github.com/
 ### 1. import the the word search generator
 
 ```python
-from utils import WordSearch
+from WordSearch import WordSearch
 ```
 ### 2. initialize the *WordSearch* object
 ```python
