@@ -19,20 +19,20 @@ class WordSearch():
     DONTCARE = -100
     wordPosition = {}
 
-    def __init__(self, searchWords, maxX = 20, maxY = 20):
-        self.maxX = maxX
-        self.maxY = maxY
+    def __init__(self, searchWords, width = 20, height = 20):
+        self.width = width
+        self.height = height
         self.grid = [] # grid is a list of list of strings (characters)
         testWords = ['superhero', 'gugu','gaga','blah','vodka']
         if searchWords == []: searchWords = testWords
         self.searchWords = []
         for word in searchWords:
-            if len(word) <= max(maxX, maxY):
+            if len(word) <= max(width, height):
                 self.searchWords.append(word)
         # self.searchWords = searchWords
-        for row in range(0, self.maxY):
-            self.grid.append(['*'] * maxX)
-            # for column in range(0, self.maxX):
+        for row in range(0, self.height):
+            self.grid.append(['*'] * width)
+            # for column in range(0, self.width):
             #     self.grid[row].append('*')
         for word in searchWords:
             DIR = random.randint(0, 7)
@@ -50,14 +50,14 @@ class WordSearch():
             iteration = 0
             while True:
                 iteration += 1
-                y = random.randint(0, self.maxY - 1)
-                x = random.randint(0, self.maxX - 1)
+                y = random.randint(0, self.height - 1)
+                x = random.randint(0, self.width - 1)
                 if self.grid[y][x] == '*' or iteration > 100:
                     break
         # check if x & y are valid
-        if x == self.maxX or x < 0:
+        if x == self.width or x < 0:
             return False
-        if y == self.maxY or y < 0:
+        if y == self.height or y < 0:
             return False
         if not (self.grid[y][x] == "*" or self.grid[y][x] == word[0]):
             return False
@@ -100,24 +100,28 @@ class WordSearch():
 
     def obfusticate(self):
         alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-        for j in range(self.maxY):
-            for i in range(self.maxX):
+        for j in range(self.height):
+            for i in range(self.width):
                 if self.grid[j][i] == '*':
                     self.grid[j][i] = alpha[random.randint(0,35)]
 
     def letter(self,x,y):
         return self.grid[x][y]
 
+    def printPos(self):
+        for key in self.wordPosition:
+            print( key, ":", self.wordPosition[key][0], "->", self.wordPosition[key][-1] )
+
     def findWords(self, words):
         for word in words:
             firstLetter = word[0]
             positions = None
             y = 0; found = False
-            while y < self.maxY and not found:
+            while y < self.height and not found:
                 x = 0
-                while x < self.maxX and not found:
+                while x < self.width and not found:
                     if firstLetter == self.grid[y][x]:
-                        positions  = self.wordIsHere(word, x, y)
+                        positions = self.wordIsHere(word, x, y)
                         if positions:
                             found = True
                             break
@@ -128,98 +132,111 @@ class WordSearch():
                 self.wordPosition[word] = positions
         self.printPos()
 
-    def printPos(self):
-        for key in self.wordPosition:
-            print( key, ":", self.wordPosition[key][0], "->", self.wordPosition[key][-1] )
+    def wordIsHere(self, word, firstX, firstY):
+         """
+         traverse all 8 directions
+         """
 
-    def wordIsHere(self,word, firstX, firstY):
-         maxX = self.maxX
-         maxY = self.maxY
          # horizontal
          found = True; x = firstX; y = firstY; positions = []
          for letter in word:
-             if x == maxX or letter != self.grid[y][x]:
+             if x >= self.width or letter != self.grid[y][x]:
                  found = False
                  break
-             positions.append((y, x))
-             x += 1
+             else:
+                 positions.append((y, x))
+                 x += 1
          if found:
              return positions
+
          # vertical
          found = True; x = firstX; y = firstY; positions = []
          for letter in word:
-             if y == maxY or letter != self.grid[y][x]:
+             if y >= self.height or letter != self.grid[y][x]:
                  found = False
                  break
-             positions.append((y, x))
-             y += 1
+             else:
+                 positions.append((y, x))
+                 y += 1
          if found:
              return positions
+
          # reverse horizontal
          found = True; x = firstX; y = firstY; positions = []
          for letter in word:
-             if x == -1 or letter != self.grid[y][x]:
+             if x < 0 or letter != self.grid[y][x]:
                  found = False
                  break
-             positions.append((y, x))
-             x -= 1
+             else:
+                 positions.append((y, x))
+                 x -= 1
          if found:
              return positions
+
          # reverse vertical
          found = True; x = firstX; y = firstY; positions = []
          for letter in word:
-             if y == -1 or letter != self.grid[y][x]:
+             if y < 0 or letter != self.grid[y][x]:
                  found = False
                  break
-             positions.append((y, x))
-             y -= 1
+             else:
+                 positions.append((y, x))
+                 y -= 1
          if found:
              return positions
+
          # diagonal
          found = True; x = firstX; y = firstY; positions = []
          for letter in word:
-             if y == maxY or x == maxX or letter != self.grid[y][x]:
+             if y >= self.height or x >= self.width or letter != self.grid[y][x]:
                  found = False
                  break
-             positions.append((y, x))
-             x += 1
-             y += 1
+             else:
+                 positions.append((y, x))
+                 x += 1
+                 y += 1
          if found:
              return positions
+
          # reverse diagonal
          found = True; x = firstX; y = firstY; positions = []
          for letter in word:
-             if y == -1 or x == -1 or letter != self.grid[y][x]:
+             if y < 0 or x < 0 or letter != self.grid[y][x]:
                  found = False
                  break
-             positions.append((y, x))
-             x -= 1
-             y -= 1
+             else:
+                 positions.append((y, x))
+                 x -= 1
+                 y -= 1
          if found:
              return positions
+
          # flip diagonal
          found = True; x = firstX; y = firstY; positions = []
          for letter in word:
-             if y == -1 or x == maxX or letter != self.grid[y][x]:
+             if y < 0 or x >= self.width or letter != self.grid[y][x]:
                  found = False
                  break
-             positions.append((y, x))
-             x += 1
-             y -= 1
+             else:
+                 positions.append((y, x))
+                 x += 1
+                 y -= 1
          if found:
              return positions
+
          # reverse flip diagonal
          found = True; x = firstX; y = firstY; positions = []
          for letter in word:
-             if y == maxY or x == -1 or letter != self.grid[y][x]:
+             if y >= self.height or x < 0 or letter != self.grid[y][x]:
                  found = False
                  break
-             positions.append((y, x))
-             x -= 1
-             y += 1
+             else:
+                 positions.append((y, x))
+                 x -= 1
+                 y += 1
          if found:
              return positions
-         #
+
          return None
 
     def printGrid(self):
@@ -238,3 +255,6 @@ class WordSearch():
         with open(name, "w", newline="") as g:
             writer = csv.writer(g)
             writer.writerows(self.grid)
+
+    def shape(self):
+        return self.width, self.height
