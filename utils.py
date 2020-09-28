@@ -248,7 +248,7 @@ class WordSearch():
     def showResult(self):
         print("\n\nGRID\n------------------------------")
         self.printGrid()
-        print("\nWord Bank\n------------------------------")
+        print("\nWord Positions\n------------------------------")
         self.findWords(self.searchWords)
 
     def gridToCSV(self, name = "grid.csv"):
