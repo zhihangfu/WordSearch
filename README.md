@@ -69,4 +69,4 @@ ACT : (1, 3) -> (1, 1)
  
 ### Propeties
  > ```WordSearch.Grid```                                                     
- Description: It is the WordSearch Grid where all letters are stored.
+ Description: It is the WordSearch Grid (as a list of lists) where all letters are stored.
