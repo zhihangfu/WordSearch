@@ -9,7 +9,7 @@ derived from mast3rsoft's repository [mast3rsoft/WordSearch](https://github.com/
 ```python
 from utils import WordSearch
 ```
-### 2. initialize the *WordSearch* Object
+### 2. initialize the *WordSearch* object
 ```python
 # read vocabulary from "voc.txt"
 with open("voc.txt") as voc:
@@ -24,7 +24,7 @@ w1.showResult()
 w1.gridToCSV("grid1.csv")
 ```
 
-### 3. you should see something like this in your output:
+### 3. then you should see something like this in your output:
 ```
 GRID
 ------------------------------
