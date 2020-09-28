@@ -64,8 +64,8 @@ ACT : (1, 3) -> (1, 1)
  > ```WordSearch.gridToCSV(name = ""grid.csv)```
  Description: Save the grid to a csv format
  
-  > ```WordSearch.shape```                                                     
- Description: Returns the width and height of the grid.
+  > ```WordSearch.shape()```                                                     
+ Description: Returns the width and height (as a tuple) of the grid.
  
 ### Propeties
  > ```WordSearch.Grid```                                                     
