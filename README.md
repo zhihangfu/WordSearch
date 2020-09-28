@@ -60,7 +60,7 @@ ACT : (1, 3) -> (1, 1)
 
 ```WordSearch.showResults``` prints the grid and the word positions.
 
-```WordSearch.gridToCSV(name = "grid.csv“)``` save the grid to a csv format.
+```WordSearch.gridToCSV(name = "grid.csv")``` save the grid to a csv format.
 
 ### Propeties
 ```WordSearch.Grid``` is the WordSearch Grid (as a list of lists) where all letters are stored.
