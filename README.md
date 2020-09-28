@@ -6,11 +6,11 @@ derived from mast3rsoft's repository [mast3rsoft/WordSearch](https://github.com/
 
 ### 1. import the *the word search Generator*
 
-``` Python
+```python
 from utils import WordSearch
 ```
 ### 2. initialize the *WordSearch* Object
-``` Python
+```python
 # read vocabulary from "voc.txt"
 with open("voc.txt") as voc:
     words = voc.readlines()
